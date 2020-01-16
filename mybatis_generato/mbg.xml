@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+	<!-- targetRuntime="MyBatis3Simple":生成简单版的CRUD
+	 MyBatis3:豪华版 -->
+	<context id="DB2Tables" targetRuntime="MyBatis3Simple">
+	<!-- 不生成注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!-- jdbcConnection：指定如何连接到目标数据库 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/test?allowMultiQueries=true"
+			userId="root" password="root">
+		</jdbcConnection>
+
+
+		<!-- -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- javaModelGenerator：指定javaBean的生成策略 targetPackage="test.model"：目标包名 
+			targetProject="\MBGTestProject\src"：目标工程 -->
+		<javaModelGenerator targetPackage="com.pojo"
+			targetProject=".\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- sqlMapGenerator：sql映射生成策略： -->
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject=".\src\main\resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- javaClientGenerator:指定mapper接口所在的位置 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.dao" targetProject=".\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<table tableName="user" domainObjectName="User"></table>
+		<!-- 指定要逆向分析哪些表：根据表要创建javaBean -->
+		<!-- <table tableName="t_address" domainObjectName="Address"></table> <table 
+			tableName="t_admin_role" domainObjectName="AdminRole"></table> <table tableName="t_advertisement" 
+			domainObjectName="Advertisement"></table> <table tableName="t_backend_admin" 
+			domainObjectName="BackendAdmin"></table> -->
+		<!-- <table tableName="t_books" domainObjectName="Books"></table> <table 
+			tableName="t_meal_books" domainObjectName="MealBooks"></table> -->
+		<!-- <table tableName="t_books_pic" domainObjectName="BooksPic"></table> 
+			<table tableName="t_category" domainObjectName="Category"></table> <table 
+			tableName="t_collection" domainObjectName="Collection"></table> <table tableName="t_comment" 
+			domainObjectName="Comment"></table> <table tableName="t_customer" domainObjectName="Customer"></table> 
+			<table tableName="t_customer_record" domainObjectName="CustomerRecord"></table> 
+			<table tableName="t_data_dictionary" domainObjectName="DataDictionary"></table> 
+			<table tableName="t_default_reply" domainObjectName="DefaultReply"></table> 
+			<table tableName="t_email" domainObjectName="Email"></table> <table tableName="t_follow" 
+			domainObjectName="Follow"></table> <table tableName="t_icon" domainObjectName="Icon"></table> 
+			<table tableName="t_meal" domainObjectName="Meal"></table> <table tableName="t_news" 
+			domainObjectName="News"></table> <table tableName="t_order" domainObjectName="Order"></table> 
+			<table tableName="t_order_details" domainObjectName="OrderDetails"></table> 
+			<table tableName="t_permission" domainObjectName="Permission"></table> <table 
+			tableName="t_platform_account" domainObjectName="PlatformAccount"></table> 
+			<table tableName="t_press" domainObjectName="Press"></table> <table tableName="t_return_goods" 
+			domainObjectName="ReturnGoods"></table> <table tableName="t_role" domainObjectName="Role"></table> 
+			<table tableName="t_role_permission" domainObjectName="RolePermission"></table> 
+			<table tableName="t_shoppingcart" domainObjectName="Shoppingcart"></table> 
+			<table tableName="t_short_message" domainObjectName="ShortMessage"></table> 
+			<table tableName="t_stock" domainObjectName="Stock"></table> <table tableName="t_user" 
+			domainObjectName="User"></table> <table tableName="t_user_account" domainObjectName="UserAccount"></table> 
+			<table tableName="t_user_recharge" domainObjectName="UserRecharge"></table> -->
+
+	</context>
+</generatorConfiguration>
